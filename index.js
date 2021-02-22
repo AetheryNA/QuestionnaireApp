@@ -3,7 +3,7 @@ const express = require('express');
  
 const app = new express();
  
-app.use(express.static('public'));
+app.use(express.static('assets'));
  
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'views/index.html'));
