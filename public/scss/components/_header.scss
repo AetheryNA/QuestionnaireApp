@@ -1,0 +1,41 @@
+header {
+  background-color: $blue;
+  width: 100%;
+    
+  @include md {
+    height: 100%;
+    width: 30%;
+  }
+
+  &::after {
+    background-position: center;
+    background-size: contain;
+    background: url("../img/background-accent-mobile.png") no-repeat;
+    content: '';
+    height: 50px;
+    position: absolute;
+    right: 0;
+    top: 43%;
+    transform: translateY(-50%);
+    width: 100px;
+
+    @include md {
+      background: url("../img/background-accent-desktop.png") no-repeat;
+      bottom: 0;
+      height: 30%;
+      left: -10%;
+      right: unset;
+      top: unset;
+      transform: unset;
+      width: 100%;
+    }
+  }
+
+  h2 {
+    color: $white;
+
+    @include md {
+        text-align: right;
+    }
+  }
+}
