@@ -2,7 +2,7 @@ header {
   background-color: $blue;
   width: 100%;
     
-  @include md {
+  @include lg {
     height: 100%;
     width: 30%;
   }
@@ -19,7 +19,7 @@ header {
     transform: translateY(-50%);
     width: 100px;
 
-    @include md {
+    @include lg {
       background: url("../img/background-accent-desktop.png") no-repeat;
       bottom: 0;
       height: 30%;
@@ -33,9 +33,12 @@ header {
 
   h2 {
     color: $white;
+    text-transform: uppercase;
 
-    @include md {
-        text-align: right;
+    @include lg {
+      padding-top: 10px;
+      padding-right: 10px;
+      text-align: right;
     }
   }
 }
