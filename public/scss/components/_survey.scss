@@ -1,7 +1,9 @@
 .survey {
+  padding-top: 50px;
   width: 100%;
 
   @include lg {
+    padding-top: unset;
     padding-left: 35%;
   }
 
@@ -66,6 +68,8 @@
     input[type="radio"]:checked,
     input[type="radio"]:not(checked) {
       + label {
+        cursor: pointer;
+
         &:before {
           content: '';
           display: block;
@@ -76,7 +80,7 @@
           height: 15px;
           top: 1px;
           left: -26px;
-          transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition: 0.3s ease all;
         }
 
         &:after {
@@ -84,6 +88,12 @@
           opacity: 0;
           transition: all 0.2s ease;
           transform: scale(0);
+        }
+
+        &:hover {
+          &:before {
+            border-color: $accent-pink;
+          }
         }
       }
     }
@@ -113,6 +123,28 @@
     label {
       margin-left: 15px;
       position: relative;
+    }
+  }
+
+  &__submit {
+    background-color: $accent-pink;
+    border: 0;
+    color: $white;
+    cursor: pointer;
+    float: right;
+    font-family: $raleway;
+    font-size: 17px;
+    font-weight: $semi-bold;
+    margin-bottom: 40px;
+    padding: 15px 30px;
+    transition: 0.3s ease all;
+
+    @include lg {
+      margin-bottom: 60px;
+    }
+
+    &:hover {
+      background-color: $accent-pink-dark;
     }
   }
 }
