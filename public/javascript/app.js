@@ -5,4 +5,4 @@ import '../scss/style.scss';
 
 // JS
 import './vendor/firebase';
-import './components/survey';
+import './components/surveyController';
