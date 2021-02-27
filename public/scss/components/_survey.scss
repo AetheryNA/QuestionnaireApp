@@ -129,6 +129,7 @@
   &__submit {
     background-color: $accent-pink;
     border: 0;
+    border-radius: 5px;
     color: $white;
     cursor: pointer;
     float: right;
@@ -146,5 +147,10 @@
     &:hover {
       background-color: $accent-pink-dark;
     }
+  }
+
+  .unchecked {
+    border: 2px solid $accent-pink-dark;
+    padding: 20px;
   }
 }
