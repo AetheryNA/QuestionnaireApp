@@ -8,37 +8,42 @@ import "firebase/database";
 
 // Submit button on click
 $('.survey__submit').click(function(e) {
-  e.preventDefault();
+  let getCheckedButtons = getAllRadioButtonsChecked()
+  
+  e.preventDefault()
 
-  checkAllButtonsClicked()
+  if (checkAllButtonsClicked()) {
+    writeDataIntoFirebase(getCheckedButtons)
+  }
 })
 
 // Validation to see if buttons are all checked
 const checkAllButtonsClicked = () => {
   let checkState = true
 
-  $('input:radio').each(function() { 
-    let name = $(this).attr('name');
-
-    if($("input:radio[name=" + name + "]:checked").length == 0) {
-      checkState = false;
+  $('.survey__question').each(function() {
+    if (!$(this).find('input:radio').is(':checked')) {
+      checkState = false
     }
-  });
+  })
+
+  if(checkState) 
+    alert('all buttons checked')
+  else 
+    alert('missing buttons')
+
+  return checkState
+}
 
   // Get all checked radio buttons
+const getAllRadioButtonsChecked = () => {
   let allRadioButtonsChecked = {}
 
   $('input:radio:checked').each(function() {
     allRadioButtonsChecked[$(this).attr('name')] = $(this).attr('id')
   })
 
-  if(checkState) {
-    alert('all buttons checked')
-
-    writeDataIntoFirebase(allRadioButtonsChecked)
-  }
-  else
-    alert('missing buttons')
+  return allRadioButtonsChecked
 }
 
 // Firebase - write data into realtime database
