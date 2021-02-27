@@ -8,12 +8,10 @@ import "firebase/database";
 
 // Submit button on click
 $('.survey__submit').click(function(e) {
-  let getCheckedButtons = getAllRadioButtonsChecked()
-  
   e.preventDefault()
-
+  
   if (checkAllButtonsClicked()) {
-    writeDataIntoFirebase(getCheckedButtons)
+    writeDataIntoFirebase(getAllRadioButtonsChecked())
   }
 })
 
