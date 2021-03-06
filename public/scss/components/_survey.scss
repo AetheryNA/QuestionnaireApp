@@ -14,7 +14,11 @@
 
   .container {
     max-width: 665px;
-    width: 100%;
+    margin: auto;
+
+    @include lg {
+      margin: 0;
+    }
   }
 
   h3 {
@@ -30,14 +34,69 @@
   }
 
   &__form {
-    margin-top: 30px;
+    margin-top: 20px;
 
     @include lg {
-      margin-top: 50px;
+      margin-top: 30px;
     }
 
     p {
       font-weight: $semi-bold;
+    }
+  }
+
+  &__question-main {
+    margin-bottom: 40px;
+
+    @include lg {
+      margin-bottom: 50px;
+    }
+
+    p {
+      font-size: 15px;
+      font-weight: $bold;
+    }
+  }
+
+  &__required {
+    margin-top: 10px;
+  }
+
+  &__textbox {
+    padding: 0 20px;
+    border: 1px solid $black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-width: 510px;
+    outline: none;
+    height: 35px;
+    width: 100%;
+
+    @include lg {
+      height: 50px;
+    }
+  }
+
+  &__checkbox-container {
+    display: flex;
+    
+    label {
+      font-family: $raleway;
+      font-size: 15px;
+      font-weight: $semi-bold;
+      max-width: 550px;
+    }
+  }
+
+  &__checkbox {
+    border: 1px solid $black;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+
+    @include lg {
+      width: 20px;
+      height: 20px;
     }
   }
 
