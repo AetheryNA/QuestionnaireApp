@@ -9,12 +9,14 @@ h2 {
 }
 
 p,
-h3 {
+h3,
+th {
   font-family: $raleway;
   font-size: 25px;
 }
 
-label {
+label,
+td {
   font-family: $roboto;
   font-size: 17px;
 }

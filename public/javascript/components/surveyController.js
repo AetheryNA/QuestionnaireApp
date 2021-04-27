@@ -9,9 +9,11 @@ import "firebase/database";
 // Submit button on click
 $('.survey__submit').click(function(e) {
   e.preventDefault()
-  
+
   if (checkAllButtonsClicked()) {
-    writeDataIntoFirebase(getAllRadioButtonsChecked())
+    let username = $('#wfh-q').val();
+
+    writeDataIntoFirebase(getAllRadioButtonsChecked(), username)
   }
 })
 
@@ -38,13 +40,13 @@ const getAllRadioButtonsChecked = () => {
   let allRadioButtonsChecked = {}
 
   $('input:radio:checked').each(function() {
-    allRadioButtonsChecked[$(this).attr('name')] = $(this).attr('id')
+    allRadioButtonsChecked[$(this).attr('name')] = $(this).attr('data-answer')
   })
 
   return allRadioButtonsChecked
 }
 
 // Firebase - write data into realtime database
-const writeDataIntoFirebase = (data) => {
-  firebase.database().ref('answeredQuestions/').set(data)
+const writeDataIntoFirebase = (data, name) => {
+  firebase.database().ref('surveyor/' + name + '/').set(data)
 }
